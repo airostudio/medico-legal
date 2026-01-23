@@ -4,7 +4,14 @@ This document provides essential context and guidelines for AI assistants workin
 
 ## Project Overview
 
-**Medico-Legal** is a system designed to handle medical-legal documentation, case management, and analysis. The project aims to streamline the intersection of medical records and legal proceedings.
+**Medico-Legal** is a professional landing page and web application for Reilly & Throlstrup Medico-Legal services. The project provides a modern, responsive website for legal and insurance professionals seeking independent medical opinions, court-ready reporting, and expert witness services.
+
+### Tech Stack
+
+- **React 18** - UI framework
+- **TypeScript** - Type-safe development
+- **Vite** - Build tool and dev server
+- **Tailwind CSS** - Utility-first styling
 
 ### Domain Context
 
@@ -13,68 +20,115 @@ This project operates in a sensitive domain involving:
 - **Legal Documentation**: Privileged attorney-client communications and case materials
 - **Compliance Requirements**: Strict data handling, audit trails, and access controls
 
-## Repository Status
-
-This is a newly initialized repository. The codebase is being established from scratch.
-
-## Project Structure (Planned)
+## Project Structure
 
 ```
 medico-legal/
 ├── CLAUDE.md              # AI assistant guidelines (this file)
 ├── README.md              # Project documentation
-├── docs/                  # Documentation
-│   ├── architecture/      # System architecture docs
-│   ├── api/               # API documentation
-│   └── guides/            # User and developer guides
-├── src/                   # Source code
-│   ├── api/               # API endpoints
-│   ├── models/            # Data models
-│   ├── services/          # Business logic
-│   ├── utils/             # Utility functions
-│   └── types/             # TypeScript type definitions
-├── tests/                 # Test suites
-│   ├── unit/              # Unit tests
-│   ├── integration/       # Integration tests
-│   └── e2e/               # End-to-end tests
-├── config/                # Configuration files
-├── scripts/               # Build and utility scripts
-└── .github/               # GitHub workflows and templates
+├── package.json           # Dependencies and scripts
+├── vite.config.ts         # Vite configuration
+├── tsconfig.json          # TypeScript configuration
+├── tailwind.config.js     # Tailwind CSS configuration
+├── postcss.config.js      # PostCSS configuration
+├── eslint.config.js       # ESLint configuration
+├── index.html             # HTML entry point
+├── public/
+│   └── favicon.svg        # Site favicon
+└── src/
+    ├── main.tsx           # React entry point
+    ├── App.tsx            # Main application component (landing page)
+    ├── index.css          # Tailwind imports and custom styles
+    └── vite-env.d.ts      # Vite type definitions
 ```
+
+## Key Components (in App.tsx)
+
+The landing page consists of these main sections:
+
+| Component | Purpose |
+|-----------|---------|
+| `Header` | Navigation bar with logo and links |
+| `Hero` | Full-screen hero with CTAs |
+| `TrustBar` | Key value propositions |
+| `Services` | 6 service cards (IME, Reports, etc.) |
+| `Process` | 4-step workflow explanation |
+| `About` | Company information and focus areas |
+| `Testimonials` | Client quotes |
+| `CTA` | Contact section with form |
+| `Footer` | Copyright and links |
 
 ## Development Guidelines
 
+### Common Commands
+
+```bash
+# Install dependencies
+npm install
+
+# Run development server (http://localhost:5173)
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+
+# Run linting
+npm run lint
+```
+
 ### Code Style
 
-1. **TypeScript**: Prefer TypeScript for type safety in sensitive data handling
-2. **Strict Mode**: Enable strict TypeScript compilation
-3. **Explicit Types**: Always define explicit types for function parameters and return values
-4. **No Any**: Avoid `any` type; use `unknown` with proper type guards when needed
+1. **TypeScript**: Use TypeScript for type safety
+2. **Strict Mode**: Strict TypeScript compilation enabled
+3. **Explicit Types**: Define types for function parameters and return values
+4. **No Any**: Avoid `any` type; use `unknown` with type guards when needed
+5. **Functional Components**: Use React functional components with hooks
+
+### Tailwind CSS Conventions
+
+- Use utility classes directly in JSX
+- Custom colors defined in `tailwind.config.js`:
+  - `navy` (#0B1220) - Primary dark background
+  - `teal` (#1E8FA6, #2FB7C9) - Accent color
+  - `gold` (#C98A2A) - Secondary accent/CTA color
+
+### Component Patterns
+
+```tsx
+// Component with typed props
+function ServiceCard({ title, desc, icon }: {
+  title: string;
+  desc: string;
+  icon: string;
+}) {
+  return (
+    <div className="rounded-3xl bg-white/5 p-6 ring-1 ring-white/10">
+      <div className="text-3xl">{icon}</div>
+      <h3 className="mt-4 text-lg font-semibold">{title}</h3>
+      <p className="mt-2 text-sm text-white/75">{desc}</p>
+    </div>
+  );
+}
+```
 
 ### Security Requirements
 
 Given the sensitive nature of medico-legal data:
 
-1. **Never log PII/PHI**: Do not log patient names, SSNs, medical record numbers, or other identifiable information
-2. **Sanitize Inputs**: Always sanitize and validate user inputs
-3. **Parameterized Queries**: Use parameterized queries for all database operations
-4. **Access Control**: Implement role-based access control (RBAC) for all endpoints
-5. **Audit Logging**: Log all data access and modifications with user context (but not the data itself)
-6. **Encryption**: Use encryption at rest and in transit for all sensitive data
+1. **Never log PII/PHI**: Do not log patient names, SSNs, or identifiable information
+2. **Sanitize Inputs**: Always sanitize and validate form inputs
+3. **No Secrets in Code**: Never commit credentials or API keys
+4. **HTTPS Only**: All production deployments must use HTTPS
 
 ### Git Workflow
 
-1. **Branch Naming**: Use descriptive branch names (e.g., `feature/case-management`, `fix/document-upload`)
+1. **Branch Naming**: Use descriptive branch names (e.g., `feature/contact-form`, `fix/mobile-nav`)
 2. **Commit Messages**: Write clear, descriptive commit messages
 3. **Pull Requests**: All changes require PR review before merging
-4. **No Secrets**: Never commit secrets, API keys, or credentials to the repository
-
-### Testing Requirements
-
-1. **Unit Tests**: Required for all business logic
-2. **Integration Tests**: Required for API endpoints and database operations
-3. **Coverage**: Maintain minimum 80% code coverage
-4. **Security Tests**: Include tests for authentication, authorization, and input validation
+4. **No Secrets**: Never commit secrets, API keys, or credentials
 
 ## AI Assistant Instructions
 
@@ -82,131 +136,69 @@ Given the sensitive nature of medico-legal data:
 
 1. **Read Before Modifying**: Always read existing code before making changes
 2. **Understand Context**: Ensure you understand the medical-legal domain context
-3. **Security First**: Prioritize security in all implementations
-4. **Minimal Changes**: Make only the changes necessary to complete the task
-5. **Test Coverage**: Include tests for any new functionality
+3. **Maintain Design**: Keep the established dark theme and color palette
+4. **Component Structure**: Follow existing component patterns
+5. **Responsive Design**: Ensure all changes work on mobile and desktop
 
 ### Prohibited Actions
 
-1. **Never expose PHI/PII** in logs, error messages, or API responses
-2. **Never bypass** authentication or authorization checks
-3. **Never store** sensitive data in plain text
-4. **Never commit** credentials, API keys, or secrets
-5. **Never disable** security features or validations
+1. **Never expose PHI/PII** in logs, error messages, or responses
+2. **Never commit** credentials, API keys, or secrets
+3. **Never break** the responsive layout
+4. **Never remove** accessibility features
+5. **Never change** the core brand colors without explicit request
 
-### Code Patterns to Follow
+### Areas for Future Development
 
-#### Error Handling
-```typescript
-// Good: Generic error messages externally, detailed logging internally
-try {
-  await processCase(caseId);
-} catch (error) {
-  logger.error('Case processing failed', { caseId, errorCode: error.code });
-  throw new ApiError(500, 'An error occurred processing your request');
-}
+- [ ] Form submission backend integration
+- [ ] Add real logo image
+- [ ] Update contact information
+- [ ] Add mobile hamburger menu
+- [ ] Implement booking/scheduling system
+- [ ] Add case study or portfolio section
+- [ ] SEO optimization with meta tags
+- [ ] Add Google Analytics or similar
+
+## Customization Points
+
+### Contact Details (src/App.tsx, CTA component)
+```tsx
+<span>Phone: (000) 000-0000</span>
+<span>Email: enquiries@yourdomain.com</span>
+<span>Location: Your City, State</span>
 ```
 
-#### Data Access
-```typescript
-// Good: Check authorization before data access
-async function getCase(caseId: string, userId: string): Promise<Case> {
-  const hasAccess = await checkUserAccess(userId, caseId);
-  if (!hasAccess) {
-    throw new UnauthorizedError('Access denied');
-  }
-  return caseRepository.findById(caseId);
-}
+### Hero Image (src/App.tsx, Hero component)
+```tsx
+backgroundImage: "url('your-image-url')",
 ```
 
-#### Input Validation
-```typescript
-// Good: Validate and sanitize all inputs
-function validateCaseInput(input: unknown): CaseInput {
-  const schema = z.object({
-    title: z.string().min(1).max(500),
-    description: z.string().max(10000),
-    patientId: z.string().uuid(),
-  });
-  return schema.parse(input);
-}
-```
-
-### Common Commands
-
-```bash
-# Install dependencies (when package.json exists)
-npm install
-
-# Run development server
-npm run dev
-
-# Run tests
-npm test
-
-# Run linting
-npm run lint
-
-# Build for production
-npm run build
-```
-
-## Key Conventions
-
-### Naming Conventions
-
-- **Files**: `kebab-case.ts` for files, `PascalCase.tsx` for React components
-- **Variables**: `camelCase` for variables and functions
-- **Types/Interfaces**: `PascalCase` for types, interfaces, and classes
-- **Constants**: `SCREAMING_SNAKE_CASE` for constants
-- **Database Tables**: `snake_case` for table and column names
-
-### File Organization
-
-- One component/class per file
-- Co-locate tests with source files or in parallel test directory
-- Group related functionality in modules
-- Keep files under 300 lines when possible
-
-### Documentation
-
-- Document all public APIs with JSDoc comments
-- Include examples for complex functions
-- Keep README files up-to-date with setup instructions
-- Document environment variables in `.env.example`
+### Logo (src/App.tsx, Header component)
+Replace the "RT" text placeholder with an actual logo image.
 
 ## Environment Setup
 
-### Required Environment Variables
-
-```bash
-# Database
-DATABASE_URL=postgresql://user:password@localhost:5432/medicolegal
-
-# Authentication
-JWT_SECRET=your-secret-key
-JWT_EXPIRY=24h
-
-# Encryption
-ENCRYPTION_KEY=your-encryption-key
-
-# Logging
-LOG_LEVEL=info
-```
-
-### Local Development Setup
+### Local Development
 
 1. Clone the repository
-2. Copy `.env.example` to `.env` and configure
-3. Install dependencies: `npm install`
-4. Set up database: `npm run db:migrate`
-5. Start development server: `npm run dev`
+2. Install dependencies: `npm install`
+3. Start development server: `npm run dev`
+4. Open http://localhost:5173
 
-## Contact and Resources
+### Production Build
 
-- **Issue Tracker**: GitHub Issues for bug reports and feature requests
-- **Documentation**: See `/docs` directory for detailed documentation
-- **Code Review**: All changes require review before merging
+```bash
+npm run build
+# Output in dist/ folder - deploy to any static host
+```
+
+### Deployment Options
+
+- Netlify (drag & drop dist folder)
+- Vercel (connect GitHub repo)
+- GitHub Pages
+- AWS S3 + CloudFront
+- Any static file hosting
 
 ---
 
