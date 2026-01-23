@@ -1,6 +1,24 @@
 // App.tsx - Medico-Legal Landing Page
 // Tailwind CSS required for styling
 
+import { useState, FormEvent, ChangeEvent } from 'react';
+
+// API URL - defaults to localhost in development
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+
+interface FormData {
+  name: string;
+  organisation: string;
+  email: string;
+  phone: string;
+  message: string;
+}
+
+interface FormStatus {
+  type: 'idle' | 'loading' | 'success' | 'error';
+  message: string;
+}
+
 const services = [
   {
     title: "Independent Medical Examinations (IME)",
@@ -508,6 +526,64 @@ function Testimonials() {
 }
 
 function CTA() {
+  const [formData, setFormData] = useState<FormData>({
+    name: '',
+    organisation: '',
+    email: '',
+    phone: '',
+    message: '',
+  });
+
+  const [status, setStatus] = useState<FormStatus>({
+    type: 'idle',
+    message: '',
+  });
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    setStatus({ type: 'loading', message: '' });
+
+    try {
+      const response = await fetch(`${API_URL}/api/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message');
+      }
+
+      setStatus({
+        type: 'success',
+        message: data.message || 'Thank you for your enquiry. We will respond within 1-2 business days.',
+      });
+
+      // Reset form on success
+      setFormData({
+        name: '',
+        organisation: '',
+        email: '',
+        phone: '',
+        message: '',
+      });
+    } catch (error) {
+      setStatus({
+        type: 'error',
+        message: error instanceof Error ? error.message : 'An error occurred. Please try again.',
+      });
+    }
+  };
+
   return (
     <section id="contact" className="relative py-20">
       <div className="mx-auto max-w-6xl px-6">
@@ -541,29 +617,73 @@ function CTA() {
               </div>
             </div>
 
-            {/* Form (static) */}
             <form
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={handleSubmit}
               className="rounded-3xl bg-[#0B1220]/40 p-8 ring-1 ring-white/10"
             >
               <div className="grid gap-4">
-                <Field label="Full name" placeholder="Jane Doe" />
-                <Field label="Organisation" placeholder="Firm / Insurer" />
-                <Field label="Email" placeholder="jane@company.com" type="email" />
-                <Field label="Phone" placeholder="+1 (555) 000-0000" />
+                <Field
+                  label="Full name"
+                  name="name"
+                  placeholder="Jane Doe"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
+                <Field
+                  label="Organisation"
+                  name="organisation"
+                  placeholder="Firm / Insurer"
+                  value={formData.organisation}
+                  onChange={handleChange}
+                />
+                <Field
+                  label="Email"
+                  name="email"
+                  placeholder="jane@company.com"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+                <Field
+                  label="Phone"
+                  name="phone"
+                  placeholder="+1 (555) 000-0000"
+                  value={formData.phone}
+                  onChange={handleChange}
+                />
                 <div>
                   <label className="text-sm text-white/80">Message</label>
                   <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    minLength={10}
                     className="mt-2 h-28 w-full rounded-2xl bg-white/5 p-4 text-sm text-white placeholder:text-white/40 ring-1 ring-white/10 focus:outline-none focus:ring-2 focus:ring-[#2FB7C9]/50"
-                    placeholder="Brief matter outline, key questions, preferred timeframe…"
+                    placeholder="Brief matter outline, key questions, preferred timeframe..."
                   />
                 </div>
 
+                {status.type === 'success' && (
+                  <div className="rounded-2xl bg-[#2FB7C9]/20 p-4 text-sm text-[#2FB7C9]">
+                    {status.message}
+                  </div>
+                )}
+
+                {status.type === 'error' && (
+                  <div className="rounded-2xl bg-red-500/20 p-4 text-sm text-red-400">
+                    {status.message}
+                  </div>
+                )}
+
                 <button
-                  className="mt-2 rounded-2xl bg-[#C98A2A] px-6 py-3 text-sm font-semibold text-[#0B1220] hover:brightness-110"
+                  className="mt-2 rounded-2xl bg-[#C98A2A] px-6 py-3 text-sm font-semibold text-[#0B1220] hover:brightness-110 disabled:opacity-50 disabled:cursor-not-allowed"
                   type="submit"
+                  disabled={status.type === 'loading'}
                 >
-                  Send enquiry
+                  {status.type === 'loading' ? 'Sending...' : 'Send enquiry'}
                 </button>
 
                 <p className="text-xs text-white/55">
@@ -580,19 +700,35 @@ function CTA() {
 
 function Field({
   label,
+  name,
   placeholder,
   type = "text",
+  value,
+  onChange,
+  required = false,
 }: {
   label: string;
+  name: string;
   placeholder: string;
   type?: string;
+  value: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  required?: boolean;
 }) {
   return (
     <div>
-      <label className="text-sm text-white/80">{label}</label>
+      <label htmlFor={name} className="text-sm text-white/80">
+        {label}
+        {required && <span className="text-[#C98A2A] ml-1">*</span>}
+      </label>
       <input
+        id={name}
+        name={name}
         type={type}
         placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        required={required}
         className="mt-2 w-full rounded-2xl bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40 ring-1 ring-white/10 focus:outline-none focus:ring-2 focus:ring-[#2FB7C9]/50"
       />
     </div>

@@ -1,21 +1,31 @@
 # Medico-Legal Website
 
-A professional landing page for Reilly & Throlstrup Medico-Legal services, built with React, TypeScript, and Tailwind CSS.
+A professional landing page for Reilly & Throlstrup Medico-Legal services, built with React, TypeScript, and Tailwind CSS, with an Express.js backend for contact form handling.
 
 ## Features
 
 - Modern, responsive design
 - Dark theme with teal and gold accents
 - Sections: Hero, Services, Process, About, Testimonials, Contact
-- Contact form (frontend only - requires backend integration)
+- **Functional contact form** with backend API
+- Email notifications via SMTP
+- Rate limiting and security headers
 - Smooth scroll navigation
 
 ## Tech Stack
 
+### Frontend
 - **React 18** - UI framework
 - **TypeScript** - Type safety
 - **Vite** - Build tool and dev server
 - **Tailwind CSS** - Utility-first styling
+
+### Backend
+- **Express.js** - API server
+- **Nodemailer** - Email sending
+- **Zod** - Input validation
+- **Helmet** - Security headers
+- **express-rate-limit** - Rate limiting
 
 ## Getting Started
 
@@ -30,19 +40,38 @@ A professional landing page for Reilly & Throlstrup Medico-Legal services, built
 # Install dependencies
 npm install
 
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
+# Copy environment file
+cp .env.example .env
 ```
 
 ### Development
 
-The development server runs at `http://localhost:5173` by default.
+```bash
+# Start frontend only (http://localhost:5173)
+npm run dev
+
+# Start backend only (http://localhost:3001)
+npm run dev:server
+
+# Start both frontend and backend
+npm run dev:all
+```
+
+### Production Build
+
+```bash
+# Build frontend
+npm run build
+
+# Build server
+npm run build:server
+
+# Build both
+npm run build:all
+
+# Start production server
+npm run start:server
+```
 
 ## Project Structure
 
@@ -50,24 +79,103 @@ The development server runs at `http://localhost:5173` by default.
 medico-legal/
 ├── public/
 │   └── favicon.svg
-├── src/
-│   ├── App.tsx          # Main application component
-│   ├── main.tsx         # React entry point
-│   ├── index.css        # Tailwind imports & custom styles
-│   └── vite-env.d.ts    # Vite type definitions
-├── index.html           # HTML template
+├── src/                     # Frontend source
+│   ├── App.tsx              # Main application component
+│   ├── main.tsx             # React entry point
+│   ├── index.css            # Tailwind imports
+│   └── vite-env.d.ts
+├── server/                  # Backend source
+│   ├── index.ts             # Express server entry
+│   ├── tsconfig.json        # Server TypeScript config
+│   ├── routes/
+│   │   └── contact.ts       # Contact form endpoint
+│   └── services/
+│       └── email.ts         # Email service
+├── .env.example             # Environment template
+├── index.html
 ├── package.json
 ├── tailwind.config.js
 ├── tsconfig.json
 ├── vite.config.ts
-└── CLAUDE.md            # AI assistant guidelines
+└── CLAUDE.md
 ```
+
+## Configuration
+
+### Environment Variables
+
+Copy `.env.example` to `.env` and configure:
+
+```bash
+# Server
+PORT=3001
+NODE_ENV=development
+CORS_ORIGIN=http://localhost:5173
+
+# SMTP (required for production)
+SMTP_HOST=smtp.example.com
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=your-username
+SMTP_PASS=your-password
+
+# Email addresses
+EMAIL_FROM=noreply@yourdomain.com
+EMAIL_TO=enquiries@yourdomain.com
+```
+
+### Frontend API URL
+
+For production, set the API URL in your build:
+
+```bash
+VITE_API_URL=https://api.yourdomain.com npm run build
+```
+
+## API Endpoints
+
+### POST /api/contact
+
+Submit contact form.
+
+**Request:**
+```json
+{
+  "name": "Jane Doe",
+  "organisation": "Legal Firm",
+  "email": "jane@example.com",
+  "phone": "+1 555 000 0000",
+  "message": "Your message here..."
+}
+```
+
+**Response (success):**
+```json
+{
+  "success": true,
+  "message": "Thank you for your enquiry. We will respond within 1-2 business days."
+}
+```
+
+**Response (error):**
+```json
+{
+  "error": "Validation failed",
+  "details": [
+    { "field": "email", "message": "Invalid email address" }
+  ]
+}
+```
+
+### GET /api/health
+
+Health check endpoint.
 
 ## Customization
 
 ### Contact Information
 
-Update the contact details in `src/App.tsx` in the `CTA` component:
+Update in `src/App.tsx` in the `CTA` component:
 
 ```tsx
 <span>Phone: (000) 000-0000</span>
@@ -87,27 +195,39 @@ backgroundImage: "url('your-image-url')",
 
 Replace the "RT" placeholder in the `Header` component with your actual logo image.
 
-### Form Submission
-
-The contact form currently prevents default submission. To make it functional:
-
-1. Add form state management
-2. Connect to a backend API or service (e.g., Formspree, Netlify Forms)
-3. Add validation and error handling
-
 ## Deployment
 
-Build the production bundle:
+### Frontend (Static)
 
-```bash
-npm run build
-```
-
-The `dist/` folder contains static files ready for deployment to:
+Build and deploy `dist/` to:
 - Netlify
 - Vercel
 - GitHub Pages
-- Any static hosting
+- AWS S3 + CloudFront
+
+### Backend
+
+Deploy the server to:
+- Railway
+- Render
+- Fly.io
+- AWS EC2 / ECS
+- Any Node.js hosting
+
+### Full Stack (Recommended)
+
+For simplest deployment, use:
+- **Vercel** - Frontend + Serverless functions
+- **Railway** - Full Node.js app
+- **Render** - Static site + Web service
+
+## Security
+
+- Rate limiting: 5 requests per 15 minutes per IP
+- Helmet security headers
+- CORS restricted to frontend origin
+- Input validation with Zod
+- No PII logged (only metadata)
 
 ## License
 
