@@ -108,11 +108,12 @@ function Header() {
   return (
     <header className="relative z-10">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-        <div className="flex items-center gap-3">
-          {/* Replace with actual logo image */}
-          <div className="grid h-10 w-10 place-items-center rounded-2xl bg-white/5 ring-1 ring-white/10">
-            <span className="text-lg font-semibold text-white">RT</span>
-          </div>
+        <a href="#" className="flex items-center gap-3">
+          <img
+            src="/rtmedico-legal-logo.png"
+            alt="Reilly & Throlstrup Medico-Legal"
+            className="h-10 w-auto"
+          />
           <div className="leading-tight">
             <div className="text-base font-semibold tracking-wide">
               Reilly &amp; Throlstrup
@@ -121,7 +122,7 @@ function Header() {
               MEDICO-LEGAL
             </div>
           </div>
-        </div>
+        </a>
 
         <nav className="hidden items-center gap-7 text-sm text-white/80 md:flex">
           <a className="hover:text-white" href="#services">
