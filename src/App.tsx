@@ -110,7 +110,7 @@ function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
         <a href="#" className="flex items-center gap-3">
           <img
-            src="/rtmedico-legal-logo.png"
+            src="/rtmedico-legal-logo-26.png"
             alt="Reilly & Throlstrup Medico-Legal"
             className="h-10 w-auto"
           />
