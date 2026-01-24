@@ -3,8 +3,8 @@
 
 import { useState, FormEvent, ChangeEvent } from 'react';
 
-// API URL - defaults to localhost in development
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+// API URL - empty string uses Vite proxy in development, full URL for production
+const API_URL = import.meta.env.VITE_API_URL || '';
 
 interface FormData {
   name: string;
