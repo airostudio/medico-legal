@@ -15,9 +15,12 @@ const PORT = process.env.PORT || 3001;
 app.use(helmet());
 app.use(cors({
   origin: process.env.CORS_ORIGIN || 'http://localhost:5173',
-  methods: ['POST'],
+  methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type'],
 }));
+
+// Trust proxy for rate limiting behind reverse proxy (Railway, Render, etc.)
+app.set('trust proxy', 1);
 
 // Rate limiting - 5 requests per 15 minutes per IP for contact form
 const contactLimiter = rateLimit({
@@ -51,7 +54,16 @@ app.use((err: Error, _req: express.Request, res: express.Response, _next: expres
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`
+=================================
+  Medico-Legal API Server
+=================================
+  Port:        ${PORT}
+  Environment: ${process.env.NODE_ENV || 'development'}
+  CORS Origin: ${process.env.CORS_ORIGIN || 'http://localhost:5173'}
+  SMTP:        ${process.env.SMTP_HOST ? 'Configured' : 'Console output (dev mode)'}
+=================================
+  `);
 });
 
 export default app;
