@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer';
+import type { Transporter } from 'nodemailer';
 import type { ContactFormData } from '../routes/contact.js';
 
 interface EmailResult {
@@ -6,11 +7,18 @@ interface EmailResult {
   error?: string;
 }
 
-// Create transporter based on environment
-function createTransporter() {
+// Lazy-loaded transporter
+let transporter: Transporter | null | undefined;
+
+function getTransporter(): Transporter | null {
+  // Return cached transporter if already created
+  if (transporter !== undefined) {
+    return transporter;
+  }
+
   // Production: Use configured SMTP
   if (process.env.SMTP_HOST) {
-    return nodemailer.createTransport({
+    transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: parseInt(process.env.SMTP_PORT || '587'),
       secure: process.env.SMTP_SECURE === 'true',
@@ -19,18 +27,15 @@ function createTransporter() {
         pass: process.env.SMTP_PASS,
       },
     });
+    console.log('Email service: SMTP configured');
+    return transporter;
   }
 
-  // Development: Use console output or Ethereal
-  if (process.env.NODE_ENV === 'development') {
-    console.log('Email service: Using console output (no SMTP configured)');
-    return null;
-  }
-
-  throw new Error('SMTP configuration required in production');
+  // Development or no SMTP: Use console output
+  console.log('Email service: Using console output (no SMTP configured)');
+  transporter = null;
+  return transporter;
 }
-
-const transporter = createTransporter();
 
 export async function sendContactEmail(data: ContactFormData): Promise<EmailResult> {
   const { name, organisation, email, phone, message } = data;
@@ -103,8 +108,10 @@ Submitted: ${new Date().toISOString()}
 </html>
   `.trim();
 
+  const mailer = getTransporter();
+
   // Development mode: log to console
-  if (!transporter) {
+  if (!mailer) {
     console.log('\n========== EMAIL (DEV MODE) ==========');
     console.log(emailContent);
     console.log('=======================================\n');
@@ -112,7 +119,7 @@ Submitted: ${new Date().toISOString()}
   }
 
   try {
-    await transporter.sendMail({
+    await mailer.sendMail({
       from: process.env.EMAIL_FROM || 'noreply@yourdomain.com',
       to: process.env.EMAIL_TO || 'enquiries@yourdomain.com',
       replyTo: email,
