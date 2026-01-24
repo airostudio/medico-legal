@@ -107,21 +107,13 @@ export default function App() {
 function Header() {
   return (
     <header className="relative z-10">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-        <a href="#" className="flex items-center gap-3">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6 md:py-5">
+        <a href="#">
           <img
             src="/rtmedico-legal-logo-26.png"
             alt="Reilly & Throlstrup Medico-Legal"
-            className="h-10 w-auto"
+            className="h-12 w-auto md:h-14"
           />
-          <div className="leading-tight">
-            <div className="text-base font-semibold tracking-wide">
-              Reilly &amp; Throlstrup
-            </div>
-            <div className="text-xs tracking-[0.22em] text-[#C98A2A]">
-              MEDICO-LEGAL
-            </div>
-          </div>
         </a>
 
         <nav className="hidden items-center gap-7 text-sm text-white/80 md:flex">
@@ -152,7 +144,7 @@ function Header() {
           Contact
         </a>
       </div>
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-6xl px-4 md:px-6">
         <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
     </header>
