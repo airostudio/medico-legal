@@ -105,7 +105,7 @@ const testimonials = [
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white text-slate-800">
+    <div className="min-h-screen bg-offwhite text-slate-800">
       <Header />
       <main>
         <Hero />
@@ -123,31 +123,31 @@ export default function App() {
 
 function Header() {
   return (
-    <header className="bg-white border-b border-slate-200 sticky top-0 z-50">
+    <header className="bg-charcoal-dark sticky top-0 z-50 shadow-lg">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6">
         <a href="#" className="flex items-center">
           <img
             src="/rtmedico-legal-logo-26.png"
             alt="Reilly & Throlstrup Medico-Legal"
-            className="h-12 w-auto md:h-14"
+            className="h-12 w-auto md:h-14 brightness-0 invert"
           />
         </a>
 
-        <nav className="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
-          <a className="hover:text-primary-600 transition-colors" href="#services">
+        <nav className="hidden items-center gap-8 text-sm font-medium text-slate-300 md:flex">
+          <a className="hover:text-white transition-colors" href="#services">
             Services
           </a>
-          <a className="hover:text-primary-600 transition-colors" href="#process">
+          <a className="hover:text-white transition-colors" href="#process">
             Process
           </a>
-          <a className="hover:text-primary-600 transition-colors" href="#about">
+          <a className="hover:text-white transition-colors" href="#about">
             About
           </a>
-          <a className="hover:text-primary-600 transition-colors" href="#contact">
+          <a className="hover:text-white transition-colors" href="#contact">
             Contact
           </a>
           <a
-            className="rounded-lg bg-primary-600 px-5 py-2.5 text-white font-semibold hover:bg-primary-700 transition-colors"
+            className="rounded-lg bg-secondary-600 px-5 py-2.5 text-white font-semibold hover:bg-secondary-700 transition-colors"
             href="#contact"
           >
             Request a Consultation
@@ -155,7 +155,7 @@ function Header() {
         </nav>
 
         <a
-          className="md:hidden rounded-lg bg-primary-600 px-4 py-2 text-sm text-white font-semibold hover:bg-primary-700 transition-colors"
+          className="md:hidden rounded-lg bg-secondary-600 px-4 py-2 text-sm text-white font-semibold hover:bg-secondary-700 transition-colors"
           href="#contact"
         >
           Contact
@@ -167,30 +167,34 @@ function Header() {
 
 function Hero() {
   return (
-    <section className="relative bg-gradient-to-br from-slate-50 via-white to-primary-50">
-      <div className="relative min-h-[85vh] flex items-center">
-        {/* Decorative elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary-100 rounded-full opacity-50 blur-3xl" />
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-secondary-100 rounded-full opacity-50 blur-3xl" />
-        </div>
+    <section className="relative">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+          alt="Medical and legal professionals collaborating"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-charcoal-dark/95 via-charcoal-dark/85 to-charcoal-dark/70" />
+      </div>
 
-        <div className="relative z-10 mx-auto max-w-6xl px-6 py-20">
+      <div className="relative z-10 min-h-[85vh] flex items-center">
+        <div className="mx-auto max-w-6xl px-6 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-primary-50 border border-primary-200 px-4 py-2 text-sm text-primary-700 font-medium">
-                <span className="h-2 w-2 rounded-full bg-secondary-500" />
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 text-sm text-white font-medium">
+                <span className="h-2 w-2 rounded-full bg-secondary-400" />
                 Independent opinions - Court-ready reporting - Professional integrity
               </div>
 
-              <h1 className="mt-8 text-4xl font-bold leading-tight tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
+              <h1 className="mt-8 text-4xl font-bold leading-tight tracking-tight text-white md:text-5xl lg:text-6xl">
                 Medico-Legal Expertise{" "}
-                <span className="text-primary-600">
+                <span className="text-secondary-400">
                   You Can Trust
                 </span>
               </h1>
 
-              <p className="mt-6 text-lg text-slate-600 md:text-xl leading-relaxed">
+              <p className="mt-6 text-lg text-slate-300 md:text-xl leading-relaxed">
                 Clear, impartial medical opinions and legal support services—built for
                 insurers, solicitors, and courts.
               </p>
@@ -198,13 +202,13 @@ function Hero() {
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <a
                   href="#contact"
-                  className="rounded-lg bg-primary-600 px-8 py-4 text-center font-semibold text-white hover:bg-primary-700 transition-colors shadow-lg shadow-primary-600/25"
+                  className="rounded-lg bg-secondary-600 px-8 py-4 text-center font-semibold text-white hover:bg-secondary-700 transition-colors shadow-lg shadow-secondary-600/25"
                 >
                   Request an Appointment
                 </a>
                 <a
                   href="#services"
-                  className="rounded-lg bg-white border-2 border-slate-200 px-8 py-4 text-center font-semibold text-slate-700 hover:border-primary-300 hover:text-primary-600 transition-colors"
+                  className="rounded-lg bg-white/10 backdrop-blur-sm border-2 border-white/30 px-8 py-4 text-center font-semibold text-white hover:bg-white/20 hover:border-white/50 transition-colors"
                 >
                   View Services
                 </a>
@@ -237,12 +241,12 @@ function Hero() {
 }
 
 function HeroStat({ label, value, color }: { label: string; value: string; color: 'primary' | 'secondary' }) {
-  const bgColor = color === 'primary' ? 'bg-primary-50 border-primary-200' : 'bg-secondary-50 border-secondary-200';
-  const textColor = color === 'primary' ? 'text-primary-600' : 'text-secondary-600';
+  const bgColor = color === 'primary' ? 'bg-white/10 border-white/20' : 'bg-white/10 border-white/20';
+  const textColor = color === 'primary' ? 'text-primary-300' : 'text-secondary-400';
 
   return (
-    <div className={`rounded-xl ${bgColor} border p-5`}>
-      <div className="text-xs uppercase tracking-widest text-slate-500 font-medium">
+    <div className={`rounded-xl ${bgColor} backdrop-blur-sm border p-5`}>
+      <div className="text-xs uppercase tracking-widest text-slate-400 font-medium">
         {label}
       </div>
       <div className={`mt-1 text-xl font-bold ${textColor}`}>{value}</div>
@@ -254,7 +258,7 @@ function TrustBar() {
   return (
     <section className="relative -mt-8 z-20">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="rounded-2xl bg-white p-8 shadow-xl shadow-slate-200/50 border border-slate-100">
+        <div className="rounded-2xl bg-white p-8 shadow-xl shadow-slate-300/50 border border-slate-200">
           <div className="grid gap-6 md:grid-cols-3">
             <TrustItem
               icon={
@@ -306,7 +310,7 @@ function TrustItem({ icon, title, desc }: { icon: React.ReactNode; title: string
 
 function Services() {
   return (
-    <section id="services" className="relative py-24 bg-slate-50">
+    <section id="services" className="relative py-24 bg-offwhite">
       <div className="mx-auto max-w-6xl px-6">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
@@ -380,7 +384,7 @@ function Services() {
 
 function Process() {
   return (
-    <section id="process" className="relative py-24 bg-white">
+    <section id="process" className="relative py-24 bg-white border-y border-slate-100">
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid gap-12 lg:grid-cols-2">
           <div>
@@ -477,7 +481,7 @@ function Pill({ title, desc }: { title: string; desc: string }) {
 
 function About() {
   return (
-    <section id="about" className="relative py-24 bg-slate-50">
+    <section id="about" className="relative py-24 bg-offwhite">
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid gap-12 lg:grid-cols-2">
           <div>
@@ -588,7 +592,7 @@ function InfoCard({ icon, title, desc }: { icon: React.ReactNode; title: string;
 
 function Testimonials() {
   return (
-    <section className="relative py-24 bg-white">
+    <section className="relative py-24 bg-white border-y border-slate-100">
       <div className="mx-auto max-w-6xl px-6">
         <div className="text-center">
           <div className="text-sm uppercase tracking-widest text-primary-600 font-semibold">
@@ -603,7 +607,7 @@ function Testimonials() {
           {testimonials.map((t) => (
             <div
               key={t.name}
-              className="rounded-xl bg-slate-50 p-6 border border-slate-200"
+              className="rounded-xl bg-offwhite p-6 border border-slate-200"
             >
               <svg className="w-8 h-8 text-primary-300" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
@@ -881,7 +885,7 @@ function Field({
 
 function Footer() {
   return (
-    <footer className="bg-slate-900 text-white">
+    <footer className="bg-charcoal-dark text-white">
       <div className="mx-auto max-w-6xl px-6 py-12">
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
           <div>
@@ -913,8 +917,8 @@ function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-slate-800">
-          <div className="text-sm text-slate-500">
+        <div className="mt-8 pt-8 border-t border-charcoal-light/50">
+          <div className="text-sm text-slate-400">
             © {new Date().getFullYear()} Reilly &amp; Throlstrup Medico-Legal. All rights reserved.
           </div>
         </div>

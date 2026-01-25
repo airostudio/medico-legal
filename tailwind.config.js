@@ -39,6 +39,14 @@ export default {
           light: '#D97706',
           dark: '#92400E',
         },
+        // Charcoal for header
+        charcoal: {
+          DEFAULT: '#2D3748',
+          light: '#4A5568',
+          dark: '#1A202C',
+        },
+        // Off-white background
+        offwhite: '#FAFAF8',
         // Neutral slate colors
         slate: {
           50: '#F8FAFC',
