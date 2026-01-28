@@ -597,15 +597,15 @@ function CTA() {
               <div className="mt-8 space-y-3 text-sm text-white/80">
                 <div className="flex gap-3">
                   <span className="text-[#2FB7C9]">●</span>
-                  <span>Phone: (000) 000-0000</span>
+                  <span>Phone: COMING SOON </span>
                 </div>
                 <div className="flex gap-3">
                   <span className="text-[#2FB7C9]">●</span>
-                  <span>Email: enquiries@yourdomain.com</span>
+                  <span>Email: enquiries@rtmedicolegal.com</span>
                 </div>
                 <div className="flex gap-3">
                   <span className="text-[#2FB7C9]">●</span>
-                  <span>Location: Your City, State</span>
+                  <span>Location: Australia Wide</span>
                 </div>
               </div>
             </div>
