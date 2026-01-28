@@ -770,7 +770,7 @@ function CTA() {
                 <Field
                   label="Email"
                   name="email"
-                  placeholder="inquiries@rtmedicolegal.com"
+                  placeholder="your@email"
                   type="email"
                   value={formData.email}
                   onChange={handleChange}
@@ -779,7 +779,7 @@ function CTA() {
                 <Field
                   label="Phone"
                   name="phone"
-                  placeholder="+61 COMING SOON"
+                  placeholder="+61 0000-000-000"
                   value={formData.phone}
                   onChange={handleChange}
                 />
