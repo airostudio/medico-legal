@@ -120,8 +120,8 @@ Submitted: ${new Date().toISOString()}
 
   try {
     await mailer.sendMail({
-      from: process.env.EMAIL_FROM || 'noreply@yourdomain.com',
-      to: process.env.EMAIL_TO || 'enquiries@yourdomain.com',
+      from: process.env.EMAIL_FROM || 'noreply@rtmedicolegal.com',
+      to: process.env.EMAIL_TO || 'enquiries@rtmedicolegal.com',
       replyTo: email,
       subject: `Contact Form: ${name}${organisation ? ` - ${organisation}` : ''}`,
       text: emailContent,
