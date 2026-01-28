@@ -714,7 +714,7 @@ function CTA() {
                 </div>
                 <div>
                   <div className="text-sm text-primary-200">Phone</div>
-                  <div className="text-white font-medium">(000) 000-0000</div>
+                  <div className="text-white font-medium">COMING.SOON</div>
                 </div>
               </div>
 
@@ -726,7 +726,7 @@ function CTA() {
                 </div>
                 <div>
                   <div className="text-sm text-primary-200">Email</div>
-                  <div className="text-white font-medium">enquiries@yourdomain.com</div>
+                  <div className="text-white font-medium">enquiries@rtmedicolegal.com</div>
                 </div>
               </div>
 
@@ -739,7 +739,7 @@ function CTA() {
                 </div>
                 <div>
                   <div className="text-sm text-primary-200">Location</div>
-                  <div className="text-white font-medium">Your City, State</div>
+                  <div className="text-white font-medium">Australia Wide</div>
                 </div>
               </div>
             </div>
@@ -770,7 +770,7 @@ function CTA() {
                 <Field
                   label="Email"
                   name="email"
-                  placeholder="jane@company.com"
+                  placeholder="inquiries@rtmedicolegal.com"
                   type="email"
                   value={formData.email}
                   onChange={handleChange}
@@ -779,7 +779,7 @@ function CTA() {
                 <Field
                   label="Phone"
                   name="phone"
-                  placeholder="+1 (555) 000-0000"
+                  placeholder="+61 COMING SOON"
                   value={formData.phone}
                   onChange={handleChange}
                 />
