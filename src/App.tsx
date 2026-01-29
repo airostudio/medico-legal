@@ -21,40 +21,40 @@ interface FormStatus {
 
 const services = [
   {
-    title: "Independent Medical Examinations (IME)",
-    desc: "Objective assessments for injury claims, capacity, impairment, and causation with clear reporting and defensible methodology.",
-    bullets: ["Causation & apportionment", "Permanent impairment ratings", "Functional capacity review"],
-    icon: "🩺",
+    title: "Independent Medico-Legal Psychological Assessments",
+    desc: "We conduct IME-style psychological assessments and prepare comprehensive medico-legal reports addressing diagnosis, causation, contributory factors, functional capacity, fitness for work, treatment needs and prognosis.",
+    bullets: ["Diagnosis & causation analysis", "Functional capacity & fitness for work", "Treatment needs & prognosis"],
+    icon: "🧠",
   },
   {
-    title: "Medico-Legal Reports",
-    desc: "Court-ready reports written for clarity, relevance, and evidentiary standards across civil and insurance matters.",
-    bullets: ["Chronology & records review", "Opinion evidence aligned to questions", "Plain-language summaries"],
-    icon: "📄",
-  },
-  {
-    title: "Expert Witness Testimony",
-    desc: "Confident, impartial expert testimony with thorough preparation, joint meetings, and cross-examination readiness.",
-    bullets: ["Expert conferencing", "Trial attendance", "Cross-exam support"],
-    icon: "⚖️",
-  },
-  {
-    title: "Clinical Negligence Review",
-    desc: "Independent review of standards of care, breach, and causation, with balanced opinions and comprehensive references.",
-    bullets: ["Standard of care analysis", "Breach assessment", "Causation review"],
-    icon: "🔍",
-  },
-  {
-    title: "Occupational & Workplace Health",
-    desc: "Assessments related to work capacity, accommodations, return-to-work planning, and workplace injury considerations.",
-    bullets: ["Fitness for duty", "RTW recommendations", "Restrictions & accommodations"],
+    title: "Workplace Psychological Injury & Psychosocial Risk",
+    desc: "We bring specialist expertise in workplace psychological injury and psychosocial risk, supporting nuanced evaluation of organisational stressors, systemic contributors and employer liability considerations in complex compensation matters.",
+    bullets: ["Psychosocial hazard assessment", "Organisational stressor evaluation", "Employer liability considerations"],
     icon: "🏢",
   },
   {
-    title: "Record Screening & Case Triage",
-    desc: "Efficient initial review to identify key medical issues, missing records, and the best next steps for instruction.",
-    bullets: ["Gap analysis", "Key issues identification", "Next-step recommendations"],
-    icon: "📚",
+    title: "Targeted Trauma Treatment & EMDR",
+    desc: "Where clinically appropriate, we provide brief, evidence-based treatment, including EMDR, with an emphasis on early intervention, sustainable functional recovery and minimising long-term treatment dependency.",
+    bullets: ["EMDR therapy", "Early intervention focus", "Sustainable recovery outcomes"],
+    icon: "💚",
+  },
+  {
+    title: "Psychological Assessment",
+    desc: "We conduct comprehensive psychological assessments to inform medico-legal opinion, treatment planning and rehabilitation decision-making.",
+    bullets: ["Clinical interview & structured history", "Psychometric assessment", "Functional & vocational considerations"],
+    icon: "📋",
+  },
+  {
+    title: "Evidence-Based Psychological Treatment",
+    desc: "Targeted psychological treatment to address trauma and associated symptoms arising from workplace incidents, motor vehicle accidents and criminal injuries.",
+    bullets: ["CBT & ACT therapies", "Mindfulness-based interventions", "Vocational counselling & RTW support"],
+    icon: "🎯",
+  },
+  {
+    title: "Compensation Scheme Expertise",
+    desc: "We accept referrals across all major compensation schemes, providing expert psychological opinion for legal practitioners, insurers and rehabilitation providers.",
+    bullets: ["Workers' Compensation", "Motor Vehicle Accident (CTP)", "Criminal Injuries Compensation"],
+    icon: "⚖️",
   },
 ];
 
@@ -96,6 +96,7 @@ export default function App() {
         <Services />
         <Process />
         <About />
+        <Referrals />
         <Testimonials />
         <CTA />
         <Footer />
@@ -111,7 +112,7 @@ function Header() {
         <a href="#">
           <img
             src="/rtmedico-legal-logo-26.png"
-            alt="Reilly & Throlstrup Medico-Legal"
+            alt="Reilly & Tholstrup Medico-Legal"
             className="h-12 w-auto md:h-14"
           />
         </a>
@@ -173,20 +174,18 @@ function Hero() {
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 rounded-full bg-white/5 px-4 py-2 text-xs text-white/80 ring-1 ring-white/10">
               <span className="h-2 w-2 rounded-full bg-[#2FB7C9]" />
-              Independent opinions • Court-ready reporting • Professional integrity
+              Medico-Legal Psychologists & Trauma Specialists
             </div>
 
             <h1 className="mt-6 text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
-              Medico-Legal Expertise{" "}
+              Reilly & Tholstrup{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2FB7C9] to-[#1E8FA6]">
-                you can trust
+                Medico-Legal
               </span>
-              .
             </h1>
 
             <p className="mt-5 text-lg text-white/80 md:text-xl">
-              Clear, impartial medical opinions and legal support services—built for
-              insurers, solicitors, and courts.
+              Independent IME-style psychological assessments and targeted trauma treatment for workers' compensation, motor vehicle accident and criminal injuries compensation matters.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -205,9 +204,9 @@ function Hero() {
             </div>
 
             <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
-              <HeroStat label="Turnaround" value="5–10 days" />
-              <HeroStat label="Report Style" value="Court-ready" />
-              <HeroStat label="Approach" value="Impartial" />
+              <HeroStat label="Expertise" value="25+ Years" />
+              <HeroStat label="Reports" value="Court-ready" />
+              <HeroStat label="Coverage" value="Australia Wide" />
             </div>
           </div>
         </div>
@@ -232,18 +231,21 @@ function TrustBar() {
     <section className="relative -mt-10">
       <div className="mx-auto max-w-6xl px-6">
         <div className="rounded-3xl bg-[#0E1728]/80 p-6 ring-1 ring-white/10 backdrop-blur">
+          <p className="text-white/80 text-center mb-6">
+            Reilly & Tholstrup is a boutique medico-legal consultancy providing independent psychological assessments and expert opinion for legal practitioners, insurers, rehabilitation providers and medical referrers across Australia.
+          </p>
           <div className="grid gap-5 md:grid-cols-3">
             <TrustItem
-              title="Evidence-led reporting"
-              desc="Structured opinions aligned to instructions, records, and accepted clinical standards."
+              title="Psychological Injury Expertise"
+              desc="Specialising in workplace incidents, motor vehicle accidents and criminal offences, including trauma and associated symptoms."
             />
             <TrustItem
-              title="Professional integrity"
-              desc="Independent assessments with clear boundaries, transparency, and impartiality."
+              title="Senior Medico-Legal Experience"
+              desc="Accurate diagnostic opinion, defensible causation analysis and outcome-focused intervention."
             />
             <TrustItem
-              title="Smooth coordination"
-              desc="Responsive scheduling, record handling, and straightforward communication."
+              title="Evidence-Based Treatment"
+              desc="Brief, targeted trauma treatment designed to support sustainable recovery and reduce long-term claim impact."
             />
           </div>
         </div>
@@ -269,14 +271,13 @@ function Services() {
         <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
             <div className="text-xs uppercase tracking-[0.22em] text-[#C98A2A]">
-              Services
+              Our Services
             </div>
             <h2 className="mt-3 text-3xl font-semibold md:text-4xl">
-              Medico-Legal Services for Clear Outcomes
+              Medico-Legal Psychology & Trauma Services
             </h2>
             <p className="mt-3 max-w-2xl text-white/75">
-              Built for legal teams, insurers, and courts—focused on clarity, defensibility,
-              and professional standards.
+              Independent psychological assessments, expert opinion and evidence-based treatment for legal practitioners, insurers and rehabilitation providers.
             </p>
           </div>
 
@@ -284,7 +285,7 @@ function Services() {
             href="#contact"
             className="mt-4 inline-flex w-fit items-center justify-center rounded-2xl bg-white/5 px-5 py-3 text-sm font-semibold ring-1 ring-white/10 hover:bg-white/10 md:mt-0"
           >
-            Ask about your case →
+            Discuss a referral →
           </a>
         </div>
 
@@ -347,22 +348,22 @@ function Process() {
               <Step
                 num="01"
                 title="Instruction & intake"
-                desc="Define the questions, scope, timeframe, and required records. We confirm schedule and deliverables."
+                desc="Define the assessment questions, scope and timeframe. We confirm availability and required collateral materials."
               />
               <Step
                 num="02"
-                title="Records review"
-                desc="Comprehensive screening of medical records, imaging, and relevant documentation for chronology and key issues."
+                title="Collateral review"
+                desc="Comprehensive review of relevant records, clinical history and documentation to inform assessment."
               />
               <Step
                 num="03"
-                title="Assessment & opinion"
-                desc="Independent examination or file-based opinion (as instructed), with clear reasoning and references."
+                title="Psychological assessment"
+                desc="Clinical interview, structured history taking and psychometric assessment where indicated."
               />
               <Step
                 num="04"
-                title="Report & support"
-                desc="Court-ready report delivered on time, plus conferencing and testimony support when required."
+                title="Report & recommendations"
+                desc="Court-ready medico-legal report addressing diagnosis, causation, treatment needs and prognosis."
               />
             </div>
           </div>
@@ -371,10 +372,10 @@ function Process() {
             <div className="rounded-3xl bg-gradient-to-br from-[#2FB7C9]/15 to-transparent p-8 ring-1 ring-white/10">
               <h3 className="text-xl font-semibold">What you can expect</h3>
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                <Pill title="Clear scope" desc="Defined questions and deliverables." />
-                <Pill title="Neutral tone" desc="Impartial, balanced opinions." />
-                <Pill title="Structured logic" desc="Readable reasoning & references." />
-                <Pill title="Timely delivery" desc="Predictable turnaround windows." />
+                <Pill title="Clear scope" desc="Defined assessment questions and deliverables." />
+                <Pill title="Independent opinion" desc="Impartial, evidence-based conclusions." />
+                <Pill title="Defensible analysis" desc="Clear diagnostic reasoning & causation." />
+                <Pill title="Practical utility" desc="Reports designed for legal decision-making." />
               </div>
 
               <div className="mt-8 rounded-2xl bg-white/5 p-6 ring-1 ring-white/10">
@@ -426,50 +427,101 @@ function About() {
   return (
     <section id="about" className="relative py-20">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="grid gap-10 lg:grid-cols-2">
-          <div>
-            <div className="text-xs uppercase tracking-[0.22em] text-[#C98A2A]">
-              About
-            </div>
-            <h2 className="mt-3 text-3xl font-semibold md:text-4xl">
-              Professional, independent medico-legal guidance
-            </h2>
-            <p className="mt-4 text-white/75">
-              Reilly &amp; Throlstrup Medico-Legal supports legal and insurance professionals with
-              impartial medical opinions, well-structured reporting, and practical clarity.
-            </p>
+        <div className="text-center mb-12">
+          <div className="text-xs uppercase tracking-[0.22em] text-[#C98A2A]">
+            Meet Our Directors
+          </div>
+          <h2 className="mt-3 text-3xl font-semibold md:text-4xl">
+            Senior Consultant Psychologists
+          </h2>
+          <p className="mt-4 text-white/75 max-w-3xl mx-auto">
+            Our directors bring combined clinical and organisational psychology expertise, with national and international experience in medico-legal assessment and trauma treatment.
+          </p>
+        </div>
 
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              <InfoCard title="Integrity first" desc="Independent, evidence-led opinions with clear boundaries." />
-              <InfoCard title="Clarity matters" desc="Reports written for readability—without losing precision." />
-              <InfoCard title="Responsive team" desc="Fast coordination for records, scheduling, and questions." />
-              <InfoCard title="Defensible work" desc="Methodical process aligned to professional standards." />
+        <div className="grid gap-8 lg:grid-cols-2">
+          {/* Rose Reilly */}
+          <div className="rounded-3xl bg-white/5 p-8 ring-1 ring-white/10">
+            <div className="flex items-start gap-4 mb-6">
+              <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-[#2FB7C9]/30 to-[#1E8FA6]/10 ring-1 ring-white/10 flex items-center justify-center text-2xl">
+                👩‍⚕️
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold">Rose Reilly</h3>
+                <p className="text-sm text-[#2FB7C9]">Consultant Psychologist</p>
+                <p className="text-xs text-white/60 mt-1">Medico-Legal, Workplace Psychological Injury & Trauma Specialist</p>
+              </div>
+            </div>
+
+            <div className="space-y-4 text-sm text-white/75">
+              <p>
+                Rose is a senior registered psychologist specialising in the assessment of workplace psychological injury, psychosocial risk and trauma-related conditions arising from occupational incidents, motor vehicle accidents and criminal offences.
+              </p>
+              <p>
+                With over 25 years' combined clinical and organisational psychology expertise, Rose is a recognised subject matter expert in psychosocial risk and workplace psychological injury. She has extensive experience in the identification and assessment of psychosocial hazard exposures, organisational stressors and systemic contributors to injury.
+              </p>
+              <p>
+                Rose has years of experience conducting IME-style psychological assessments and preparing comprehensive medico-legal reports. Her opinions are valued for their clarity, balance and practical utility in legal and insurer decision-making.
+              </p>
+            </div>
+
+            <div className="mt-6 pt-6 border-t border-white/10">
+              <div className="text-xs uppercase tracking-[0.22em] text-[#C98A2A] mb-3">Key Expertise</div>
+              <div className="flex flex-wrap gap-2">
+                {["Psychosocial Risk", "EMDR", "Workplace Injury", "Expert Testimony"].map((tag) => (
+                  <span key={tag} className="rounded-full bg-white/5 px-3 py-1 text-xs ring-1 ring-white/10">
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
 
+          {/* Tess Tholstrup */}
           <div className="rounded-3xl bg-white/5 p-8 ring-1 ring-white/10">
-            <h3 className="text-xl font-semibold">Key Focus Areas</h3>
-            <div className="mt-4 space-y-3 text-white/75">
-              {[
-                "Personal injury, CTP, and insurance matters",
-                "Work capacity, restrictions, and functional outcomes",
-                "Negligence and standard-of-care review",
-                "Chronology building and record review",
-                "Expert testimony and conferencing support",
-              ].map((item) => (
-                <div key={item} className="flex gap-3">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-[#2FB7C9]" />
-                  <span>{item}</span>
-                </div>
-              ))}
+            <div className="flex items-start gap-4 mb-6">
+              <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-[#C98A2A]/30 to-[#C98A2A]/10 ring-1 ring-white/10 flex items-center justify-center text-2xl">
+                👩‍⚕️
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold">Tess Tholstrup</h3>
+                <p className="text-sm text-[#C98A2A]">Consultant Psychologist</p>
+                <p className="text-xs text-white/60 mt-1">Medico-Legal, Trauma & Psychological Injury Specialist</p>
+              </div>
             </div>
 
-            <div className="mt-8 rounded-2xl bg-gradient-to-r from-[#2FB7C9]/20 via-white/5 to-[#C98A2A]/15 p-6 ring-1 ring-white/10">
-              <div className="text-sm font-semibold">Professional note</div>
-              <p className="mt-2 text-sm text-white/75">
-                All opinions are provided independently and within scope of instruction and available materials.
+            <div className="space-y-4 text-sm text-white/75">
+              <p>
+                Tess brings combined clinical and organisational psychology expertise, with national and international experience in the assessment and management of complex psychological injury and occupational stress presentations.
+              </p>
+              <p>
+                She has particular expertise in the assessment of psychological injury, causation and functional capacity, providing a strong foundation for medico-legal opinion in workers' compensation, motor vehicle accident and criminal injuries compensation matters.
+              </p>
+              <p>
+                Tess has years of experience conducting IME-style psychological assessments and preparing comprehensive medico-legal reports. She has specific expertise in the delivery of short-term, evidence-based trauma treatment, including EMDR.
               </p>
             </div>
+
+            <div className="mt-6 pt-6 border-t border-white/10">
+              <div className="text-xs uppercase tracking-[0.22em] text-[#C98A2A] mb-3">Key Expertise</div>
+              <div className="flex flex-wrap gap-2">
+                {["Trauma Treatment", "EMDR", "Causation Analysis", "Functional Capacity"].map((tag) => (
+                  <span key={tag} className="rounded-full bg-white/5 px-3 py-1 text-xs ring-1 ring-white/10">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Shared approach note */}
+        <div className="mt-10 rounded-3xl bg-gradient-to-r from-[#2FB7C9]/10 via-white/5 to-[#C98A2A]/10 p-8 ring-1 ring-white/10">
+          <div className="text-center">
+            <h3 className="text-lg font-semibold mb-4">Our Approach</h3>
+            <p className="text-white/75 max-w-3xl mx-auto">
+              Both directors adopt an independent, objective and evidence-based approach in all medico-legal matters. Their treatment interventions are designed to promote early symptom resolution, facilitate durable functional recovery and support timely return-to-work outcomes while minimising long-term treatment dependency.
+            </p>
           </div>
         </div>
       </div>
@@ -483,6 +535,85 @@ function InfoCard({ title, desc }: { title: string; desc: string }) {
       <div className="text-base font-semibold">{title}</div>
       <div className="mt-2 text-sm text-white/75">{desc}</div>
     </div>
+  );
+}
+
+function Referrals() {
+  const referralSources = [
+    { title: "Law Firms", desc: "Independent medico-legal reports and expert opinion for litigation matters" },
+    { title: "Insurers & Self-Insured Employers", desc: "IME-style assessments and treatment recommendations" },
+    { title: "Rehabilitation Providers", desc: "Psychological assessment to inform rehabilitation planning" },
+    { title: "General Practitioners & Medical Specialists", desc: "Specialist psychological assessment and treatment" },
+  ];
+
+  return (
+    <section id="referrals" className="relative py-20">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="grid gap-10 lg:grid-cols-2">
+          <div>
+            <div className="text-xs uppercase tracking-[0.22em] text-[#C98A2A]">
+              Referral Pathways
+            </div>
+            <h2 className="mt-3 text-3xl font-semibold md:text-4xl">
+              We accept referrals from
+            </h2>
+            <p className="mt-4 text-white/75">
+              Medico-legal assessments and treatment referrals are managed through clearly defined pathways to ensure independence of expert opinion and adherence to ethical and professional standards.
+            </p>
+
+            <div className="mt-8 space-y-4">
+              {referralSources.map((source) => (
+                <div key={source.title} className="flex gap-4 items-start">
+                  <span className="mt-2 h-2 w-2 rounded-full bg-[#2FB7C9] shrink-0" />
+                  <div>
+                    <div className="font-semibold">{source.title}</div>
+                    <div className="text-sm text-white/70">{source.desc}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-3xl bg-white/5 p-8 ring-1 ring-white/10">
+            <h3 className="text-xl font-semibold mb-6">Treatment Modalities</h3>
+            <p className="text-white/75 text-sm mb-6">
+              Treatment is individualised, time-limited and outcome-focused, with an emphasis on functional recovery, regulation of stress responses and sustainable return to work or daily activities.
+            </p>
+
+            <div className="grid gap-3 sm:grid-cols-2">
+              {[
+                "Psychoeducation",
+                "Exposure Therapy",
+                "EMDR",
+                "Cognitive Behavioural Therapy (CBT)",
+                "Acceptance & Commitment Therapy (ACT)",
+                "Mindfulness-Based Interventions",
+                "Emotion-Focused Therapy (EFT)",
+                "Supportive Psychotherapy",
+              ].map((modality) => (
+                <div key={modality} className="flex gap-2 items-center text-sm text-white/75">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#C98A2A]" />
+                  <span>{modality}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 rounded-2xl bg-gradient-to-r from-[#2FB7C9]/20 to-transparent p-6 ring-1 ring-white/10">
+              <div className="text-sm font-semibold">Discuss a Referral</div>
+              <p className="mt-2 text-sm text-white/75">
+                We are available to discuss referral suitability and scope prior to formal instruction.
+              </p>
+              <a
+                href="#contact"
+                className="mt-4 inline-flex items-center justify-center rounded-2xl bg-[#C98A2A] px-5 py-3 text-sm font-semibold text-[#0B1220] hover:brightness-110"
+              >
+                Contact us →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -735,7 +866,7 @@ function Footer() {
         <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
         <div className="mt-8 flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
           <div className="text-sm text-white/60">
-            © {new Date().getFullYear()} Reilly &amp; Throlstrup Medico-Legal. All rights reserved.
+            © {new Date().getFullYear()} Reilly &amp; Tholstrup Medico-Legal. All rights reserved.
           </div>
           <div className="flex gap-6 text-sm text-white/60">
             <a className="hover:text-white" href="#services">
