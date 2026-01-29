@@ -529,15 +529,6 @@ function About() {
   );
 }
 
-function InfoCard({ title, desc }: { title: string; desc: string }) {
-  return (
-    <div className="rounded-3xl bg-white/5 p-6 ring-1 ring-white/10">
-      <div className="text-base font-semibold">{title}</div>
-      <div className="mt-2 text-sm text-white/75">{desc}</div>
-    </div>
-  );
-}
-
 function Referrals() {
   const referralSources = [
     { title: "Law Firms", desc: "Independent medico-legal reports and expert opinion for litigation matters" },
