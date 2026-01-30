@@ -698,6 +698,11 @@ function CTA() {
         body: JSON.stringify(formData),
       });
 
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        throw new Error('Unable to connect to server. Please try again later.');
+      }
+
       const data = await response.json();
 
       if (!response.ok) {
