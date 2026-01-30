@@ -1,10 +1,19 @@
 // App.tsx - Medico-Legal Landing Page
 // Tailwind CSS required for styling
 
-import { useState, FormEvent, ChangeEvent } from 'react';
+import { useState, useEffect, FormEvent, ChangeEvent } from 'react';
 
 // API URL - empty string uses Vite proxy in development, full URL for production
 const API_URL = import.meta.env.VITE_API_URL || '';
+
+// Hero slideshow images - female professionals in medico-legal/psychology contexts
+const heroImages = [
+  'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=2400&q=80', // Professional woman portrait
+  'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=2400&q=80', // Woman in professional meeting
+  'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=2400&q=80', // Professional woman at desk
+  'https://images.unsplash.com/photo-1551836022-8b2858c9c69b?auto=format&fit=crop&w=2400&q=80', // Woman consulting/discussion
+  'https://images.unsplash.com/photo-1590650153855-d9e808231d41?auto=format&fit=crop&w=2400&q=80', // Female professional writing
+];
 
 interface FormData {
   name: string;
@@ -153,19 +162,32 @@ function Header() {
 }
 
 function Hero() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+    }, 6000); // Change image every 6 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative">
       {/* Full-screen hero */}
       <div className="relative h-[92vh] min-h-[640px]">
-        {/* HERO IMAGE: replace URL with your real asset */}
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=2400&q=80')",
-            filter: "saturate(0.7) contrast(0.95) brightness(0.65)",
-          }}
-        />
+        {/* HERO IMAGE SLIDESHOW */}
+        {heroImages.map((image, index) => (
+          <div
+            key={image}
+            className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000"
+            style={{
+              backgroundImage: `url('${image}')`,
+              filter: "saturate(0.7) contrast(0.95) brightness(0.65)",
+              opacity: index === currentImageIndex ? 1 : 0,
+            }}
+          />
+        ))}
         {/* Overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B1220]/50 via-[#0B1220]/70 to-[#0B1220]" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0B1220]/85 via-[#0B1220]/55 to-transparent" />
