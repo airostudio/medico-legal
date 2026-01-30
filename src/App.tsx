@@ -465,9 +465,11 @@ function About() {
           {/* Rose Reilly */}
           <div className="rounded-3xl bg-white/5 p-8 ring-1 ring-white/10">
             <div className="flex items-start gap-4 mb-6">
-              <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-[#2FB7C9]/30 to-[#1E8FA6]/10 ring-1 ring-white/10 flex items-center justify-center text-2xl">
-                👩‍⚕️
-              </div>
+              <img
+                src="/Rose-Reilly-scaled-1-700x816.jpg.webp"
+                alt="Rose Reilly"
+                className="h-16 w-16 rounded-2xl object-cover ring-1 ring-white/10"
+              />
               <div>
                 <h3 className="text-xl font-semibold">Rose Reilly</h3>
                 <p className="text-sm text-[#2FB7C9]">Consultant Psychologist</p>
@@ -502,9 +504,11 @@ function About() {
           {/* Tess Tholstrup */}
           <div className="rounded-3xl bg-white/5 p-8 ring-1 ring-white/10">
             <div className="flex items-start gap-4 mb-6">
-              <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-[#C98A2A]/30 to-[#C98A2A]/10 ring-1 ring-white/10 flex items-center justify-center text-2xl">
-                👩‍⚕️
-              </div>
+              <img
+                src="/Tess-T-Photo-1.jpg.webp"
+                alt="Tess Tholstrup"
+                className="h-16 w-16 rounded-2xl object-cover ring-1 ring-white/10"
+              />
               <div>
                 <h3 className="text-xl font-semibold">Tess Tholstrup</h3>
                 <p className="text-sm text-[#C98A2A]">Consultant Psychologist</p>
