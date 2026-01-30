@@ -96,6 +96,7 @@ export default function App() {
         <Services />
         <Process />
         <About />
+        <Directors />
         <Testimonials />
         <CTA />
         <Footer />
@@ -483,6 +484,58 @@ function InfoCard({ title, desc }: { title: string; desc: string }) {
       <div className="text-base font-semibold">{title}</div>
       <div className="mt-2 text-sm text-white/75">{desc}</div>
     </div>
+  );
+}
+
+function Directors() {
+  const directors = [
+    {
+      name: "Rose Reilly",
+      title: "Senior Consultant Psychologist",
+      image: "/Rose-Reilly-scaled-1-700x816.jpg.webp",
+    },
+    {
+      name: "Tess Throlstrup",
+      title: "Senior Consultant Psychologist",
+      image: "/Tess-T-Photo-1.jpg.webp",
+    },
+  ];
+
+  return (
+    <section id="directors" className="relative py-20">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="text-center">
+          <div className="text-xs uppercase tracking-[0.22em] text-[#C98A2A]">
+            Our Team
+          </div>
+          <h2 className="mt-3 text-3xl font-semibold md:text-4xl">
+            Senior Consultant Psychologists
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-white/75">
+            Experienced professionals delivering independent, evidence-based medico-legal assessments.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-8 md:grid-cols-2 max-w-3xl mx-auto">
+          {directors.map((director) => (
+            <div
+              key={director.name}
+              className="group rounded-3xl bg-white/5 p-6 ring-1 ring-white/10 text-center"
+            >
+              <div className="mx-auto h-48 w-48 overflow-hidden rounded-full ring-2 ring-white/10">
+                <img
+                  src={director.image}
+                  alt={director.name}
+                  className="h-full w-full object-cover object-top"
+                />
+              </div>
+              <h3 className="mt-6 text-xl font-semibold">{director.name}</h3>
+              <p className="mt-2 text-sm text-[#2FB7C9]">{director.title}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
