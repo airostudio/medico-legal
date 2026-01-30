@@ -140,7 +140,7 @@ function Header() {
             Contact
           </a>
           <a
-            className="rounded-xl bg-white/5 px-4 py-2 text-white ring-1 ring-white/10 hover:bg-white/10"
+            className="rounded-xl bg-[#C98A2A] px-4 py-2 font-semibold text-[#0B1220] hover:brightness-110"
             href="#contact"
           >
             Request a Consultation
