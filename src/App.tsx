@@ -479,13 +479,19 @@ function About() {
 
             <div className="space-y-4 text-sm text-white/75">
               <p>
-                Rose is a senior registered psychologist specialising in the assessment of workplace psychological injury, psychosocial risk and trauma-related conditions arising from occupational incidents, motor vehicle accidents and criminal offences.
+                Rose Reilly is a senior registered psychologist specialising in the assessment of workplace psychological injury, psychosocial risk and trauma-related conditions arising from occupational incidents, motor vehicle accidents and criminal offences.
               </p>
               <p>
-                With over 25 years' combined clinical and organisational psychology expertise, Rose is a recognised subject matter expert in psychosocial risk and workplace psychological injury. She has extensive experience in the identification and assessment of psychosocial hazard exposures, organisational stressors and systemic contributors to injury.
+                Rose brings over 28 years of combined clinical and organisational psychology experience, with extensive national and international work across occupational, compensation and medico-legal settings. She is a recognised subject matter expert in psychosocial risk and workplace psychological injury, with substantial experience in the identification and assessment of psychosocial hazard exposures, organisational stressors and systemic contributors to injury. She has also led the development and delivery of workplace psychosocial risk training programs for organisations across multiple sectors.
               </p>
               <p>
-                Rose has years of experience conducting IME-style psychological assessments and preparing comprehensive medico-legal reports. Her opinions are valued for their clarity, balance and practical utility in legal and insurer decision-making.
+                Rose has many years of experience conducting IME-style psychological assessments and preparing comprehensive medico-legal reports for workers' compensation, motor vehicle accident and criminal injuries compensation matters. Her reports address diagnosis, causation, organisational and contributory factors, functional capacity, fitness for work, treatment needs and prognosis, and are valued for their clarity, balance and practical utility in legal and insurer decision-making.
+              </p>
+              <p>
+                In addition to her medico-legal work, Rose is an experienced treating clinician with advanced training in trauma-focused therapies, including EMDR. She specialises in the delivery of brief, targeted and sustainable psychological interventions to address trauma and associated symptoms such as anxiety, low mood, pain-related distress and stress dysregulation, with a focus on durable functional recovery and timely return-to-work outcomes.
+              </p>
+              <p>
+                Rose adopts an independent, objective and evidence-based approach in all medico-legal matters and regularly provides expert psychological opinion for court, tribunal and compensation proceedings.
               </p>
             </div>
 
