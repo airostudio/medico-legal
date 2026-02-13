@@ -140,7 +140,7 @@ function Header() {
             Contact
           </a>
           <a
-            className="rounded-xl bg-white/5 px-4 py-2 text-white ring-1 ring-white/10 hover:bg-white/10"
+            className="rounded-xl bg-[#C98A2A] px-4 py-2 font-semibold text-[#0B1220] hover:brightness-110"
             href="#contact"
           >
             Request a Consultation
@@ -465,9 +465,11 @@ function About() {
           {/* Rose Reilly */}
           <div className="rounded-3xl bg-white/5 p-8 ring-1 ring-white/10">
             <div className="flex items-start gap-4 mb-6">
-              <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-[#2FB7C9]/30 to-[#1E8FA6]/10 ring-1 ring-white/10 flex items-center justify-center text-2xl">
-                👩‍⚕️
-              </div>
+              <img
+                src="/Rose-Reilly-scaled-1-700x816.jpg.webp"
+                alt="Rose Reilly"
+                className="h-16 w-16 rounded-2xl object-cover ring-1 ring-white/10"
+              />
               <div>
                 <h3 className="text-xl font-semibold">Rose Reilly</h3>
                 <p className="text-sm text-[#2FB7C9]">Consultant Psychologist</p>
@@ -477,13 +479,19 @@ function About() {
 
             <div className="space-y-4 text-sm text-white/75">
               <p>
-                Rose is a senior registered psychologist specialising in the assessment of workplace psychological injury, psychosocial risk and trauma-related conditions arising from occupational incidents, motor vehicle accidents and criminal offences.
+                Rose Reilly is a senior registered psychologist specialising in the assessment of workplace psychological injury, psychosocial risk and trauma-related conditions arising from occupational incidents, motor vehicle accidents and criminal offences.
               </p>
               <p>
-                With over 25 years' combined clinical and organisational psychology expertise, Rose is a recognised subject matter expert in psychosocial risk and workplace psychological injury. She has extensive experience in the identification and assessment of psychosocial hazard exposures, organisational stressors and systemic contributors to injury.
+                Rose brings over 28 years of combined clinical and organisational psychology experience, with extensive national and international work across occupational, compensation and medico-legal settings. She is a recognised subject matter expert in psychosocial risk and workplace psychological injury, with substantial experience in the identification and assessment of psychosocial hazard exposures, organisational stressors and systemic contributors to injury. She has also led the development and delivery of workplace psychosocial risk training programs for organisations across multiple sectors.
               </p>
               <p>
-                Rose has years of experience conducting IME-style psychological assessments and preparing comprehensive medico-legal reports. Her opinions are valued for their clarity, balance and practical utility in legal and insurer decision-making.
+                Rose has many years of experience conducting IME-style psychological assessments and preparing comprehensive medico-legal reports for workers' compensation, motor vehicle accident and criminal injuries compensation matters. Her reports address diagnosis, causation, organisational and contributory factors, functional capacity, fitness for work, treatment needs and prognosis, and are valued for their clarity, balance and practical utility in legal and insurer decision-making.
+              </p>
+              <p>
+                In addition to her medico-legal work, Rose is an experienced treating clinician with advanced training in trauma-focused therapies, including EMDR. She specialises in the delivery of brief, targeted and sustainable psychological interventions to address trauma and associated symptoms such as anxiety, low mood, pain-related distress and stress dysregulation, with a focus on durable functional recovery and timely return-to-work outcomes.
+              </p>
+              <p>
+                Rose adopts an independent, objective and evidence-based approach in all medico-legal matters and regularly provides expert psychological opinion for court, tribunal and compensation proceedings.
               </p>
             </div>
 
@@ -502,9 +510,11 @@ function About() {
           {/* Tess Tholstrup */}
           <div className="rounded-3xl bg-white/5 p-8 ring-1 ring-white/10">
             <div className="flex items-start gap-4 mb-6">
-              <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-[#C98A2A]/30 to-[#C98A2A]/10 ring-1 ring-white/10 flex items-center justify-center text-2xl">
-                👩‍⚕️
-              </div>
+              <img
+                src="/Tess-T-Photo-1.jpg.webp"
+                alt="Tess Tholstrup"
+                className="h-16 w-16 rounded-2xl object-cover ring-1 ring-white/10"
+              />
               <div>
                 <h3 className="text-xl font-semibold">Tess Tholstrup</h3>
                 <p className="text-sm text-[#C98A2A]">Consultant Psychologist</p>
@@ -693,6 +703,11 @@ function CTA() {
         },
         body: JSON.stringify(formData),
       });
+
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        throw new Error('Unable to connect to server. Please try again later.');
+      }
 
       const data = await response.json();
 
