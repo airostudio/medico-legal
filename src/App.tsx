@@ -511,7 +511,7 @@ function About() {
           <div className="rounded-3xl bg-white/5 p-8 ring-1 ring-white/10">
             <div className="flex items-start gap-4 mb-6">
               <img
-                src="/Tess-T-Photo-1.jpg.webp"
+                src="/tess-tholstrup.jpg"
                 alt="Tess Tholstrup"
                 className="h-16 w-16 rounded-2xl object-cover ring-1 ring-white/10"
               />
