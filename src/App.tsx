@@ -466,7 +466,7 @@ function About() {
           <div className="rounded-3xl bg-white/5 p-8 ring-1 ring-white/10">
             <div className="flex items-start gap-4 mb-6">
               <img
-                src="/Rose-Reilly-scaled-1-700x816.jpg.webp"
+                src="/rose-reilly.jpg"
                 alt="Rose Reilly"
                 className="h-16 w-16 rounded-2xl object-cover ring-1 ring-white/10"
               />
