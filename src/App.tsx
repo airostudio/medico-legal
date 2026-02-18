@@ -121,7 +121,7 @@ function Header() {
         <a href="#">
           <img
             src="/rtmedico-legal-logo-26.png"
-            alt="Reilly & Tholstrup Medico-Legal"
+            alt="Reilly & Throlstrup Medico-Legal"
             className="h-12 w-auto md:h-14"
           />
         </a>
@@ -200,7 +200,7 @@ function Hero() {
             </div>
 
             <h1 className="mt-6 text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
-              Reilly & Tholstrup{" "}
+              Reilly & Throlstrup{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2FB7C9] to-[#1E8FA6]">
                 Medico-Legal
               </span>
@@ -254,7 +254,7 @@ function TrustBar() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="rounded-3xl bg-[#0E1728]/80 p-6 ring-1 ring-white/10 backdrop-blur">
           <p className="text-white/80 text-center mb-6">
-            Reilly & Tholstrup is a boutique medico-legal consultancy providing independent psychological assessments and expert opinion for legal practitioners, insurers, rehabilitation providers and medical referrers across Australia.
+            Reilly & Throlstrup is a boutique medico-legal consultancy providing independent psychological assessments and expert opinion for legal practitioners, insurers, rehabilitation providers and medical referrers across Australia.
           </p>
           <div className="grid gap-5 md:grid-cols-3">
             <TrustItem
@@ -507,16 +507,16 @@ function About() {
             </div>
           </div>
 
-          {/* Tess Tholstrup */}
+          {/* Tess Throlstrup */}
           <div className="rounded-3xl bg-white/5 p-8 ring-1 ring-white/10">
             <div className="flex items-start gap-4 mb-6">
               <img
                 src="/tess-tholstrup.jpg"
-                alt="Tess Tholstrup"
+                alt="Tess Throlstrup"
                 className="h-16 w-16 rounded-2xl object-cover ring-1 ring-white/10"
               />
               <div>
-                <h3 className="text-xl font-semibold">Tess Tholstrup</h3>
+                <h3 className="text-xl font-semibold">Tess Throlstrup</h3>
                 <p className="text-sm text-[#C98A2A]">Consultant Psychologist</p>
                 <p className="text-xs text-white/60 mt-1">Medico-Legal, Trauma & Psychological Injury Specialist</p>
               </div>
@@ -894,7 +894,7 @@ function Footer() {
         <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
         <div className="mt-8 flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
           <div className="text-sm text-white/60">
-            © {new Date().getFullYear()} Reilly &amp; Tholstrup Medico-Legal. All rights reserved.
+            © {new Date().getFullYear()} Reilly &amp; Throlstrup Medico-Legal. All rights reserved.
           </div>
           <div className="flex gap-6 text-sm text-white/60">
             <a className="hover:text-white" href="#services">
