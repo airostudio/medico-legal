@@ -86,8 +86,8 @@ async function sendContactEmail(formData: ContactFormData): Promise<{ success: b
     `;
 
     await transporter.sendMail({
-      from: EMAIL_FROM || 'noreply@rtmedicolegal.com',
-      to: EMAIL_TO || 'enquiries@rtmedicolegal.com',
+      from: EMAIL_FROM || 'reillythrolstrup@gmail.com',
+      to: EMAIL_TO || 'reillythrolstrup@gmail.com',
       replyTo: formData.email,
       subject: `New Enquiry from ${formData.name}${formData.organisation ? ` (${formData.organisation})` : ''}`,
       html: htmlContent,
