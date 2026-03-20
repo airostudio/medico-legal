@@ -505,6 +505,24 @@ function About() {
                 ))}
               </div>
             </div>
+
+            <div className="mt-6 pt-6 border-t border-white/10">
+              <div className="text-xs uppercase tracking-[0.22em] text-[#C98A2A] mb-3">Contact</div>
+              <div className="space-y-2 text-sm text-white/75">
+                <div className="flex gap-3">
+                  <span className="text-[#2FB7C9]">●</span>
+                  <a href="mailto:rose@rosereilly.com.au" className="hover:text-[#2FB7C9] transition-colors">
+                    rose@rosereilly.com.au
+                  </a>
+                </div>
+                <div className="flex gap-3">
+                  <span className="text-[#2FB7C9]">●</span>
+                  <a href="tel:+61439900539" className="hover:text-[#2FB7C9] transition-colors">
+                    0439 900 539
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Tess Throlstrup */}
