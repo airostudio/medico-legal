@@ -1,6 +1,6 @@
 # Medico-Legal Website
 
-A professional landing page for Reilly & Throlstrup Medico-Legal services, built with React, TypeScript, and Tailwind CSS, with an Express.js backend for contact form handling.
+A professional landing page for Reilly & Tholstrup Medico-Legal services, built with React, TypeScript, and Tailwind CSS, with an Express.js backend for contact form handling.
 
 ## Features
 

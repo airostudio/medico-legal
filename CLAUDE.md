@@ -4,7 +4,7 @@ This document provides essential context and guidelines for AI assistants workin
 
 ## Project Overview
 
-**Medico-Legal** is a professional landing page and web application for Reilly & Throlstrup Medico-Legal services. The project provides a modern, responsive website for legal and insurance professionals seeking independent medical opinions, court-ready reporting, and expert witness services.
+**Medico-Legal** is a professional landing page and web application for Reilly & Tholstrup Medico-Legal services. The project provides a modern, responsive website for legal and insurance professionals seeking independent medical opinions, court-ready reporting, and expert witness services.
 
 ### Tech Stack
 

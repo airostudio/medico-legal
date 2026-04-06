@@ -81,7 +81,7 @@ async function sendContactEmail(formData: ContactFormData): Promise<{ success: b
         </tr>
       </table>
       <p style="margin-top: 20px; color: #666; font-size: 12px;">
-        This email was sent from the Reilly & Throlstrup Medico-Legal website contact form.
+        This email was sent from the Reilly & Tholstrup Medico-Legal website contact form.
       </p>
     `;
 
