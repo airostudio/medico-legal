@@ -792,7 +792,7 @@ function CTA() {
               <div className="mt-8 space-y-3 text-sm text-white/80">
                 <div className="flex gap-3">
                   <span className="text-[#2FB7C9]">●</span>
-                  <span>Phone: COMING SOON </span>
+                  <span>Phone: Rose: 0439 900 539 or Tess: 0414 728 351</span>
                 </div>
                 <div className="flex gap-3">
                   <span className="text-[#2FB7C9]">●</span>
