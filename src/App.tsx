@@ -451,17 +451,17 @@ function About() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="text-center mb-12">
           <div className="text-xs uppercase tracking-[0.22em] text-[#C98A2A]">
-            Meet Our Directors
+            Meet Our Director
           </div>
           <h2 className="mt-3 text-3xl font-semibold md:text-4xl">
-            Senior Consultant Psychologists
+            Senior Consultant Psychologist
           </h2>
           <p className="mt-4 text-white/75 max-w-3xl mx-auto">
-            Our directors bring combined clinical and organisational psychology expertise, with national and international experience in medico-legal assessment and trauma treatment.
+            Our director brings combined clinical and organisational psychology expertise, with national and international experience in medico-legal assessment and trauma treatment.
           </p>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-2">
+        <div className="mx-auto max-w-3xl">
           {/* Rose Reilly */}
           <div className="rounded-3xl bg-white/5 p-8 ring-1 ring-white/10">
             <div className="flex items-start gap-4 mb-6">
@@ -524,63 +524,6 @@ function About() {
               </div>
             </div>
           </div>
-
-          {/* Tess Tholstrup */}
-          <div className="rounded-3xl bg-white/5 p-8 ring-1 ring-white/10">
-            <div className="flex items-start gap-4 mb-6">
-              <img
-                src="/tess-tholstrup.jpg"
-                alt="Tess Tholstrup"
-                className="h-16 w-16 rounded-2xl object-cover ring-1 ring-white/10"
-              />
-              <div>
-                <h3 className="text-xl font-semibold">Tess Tholstrup</h3>
-                <p className="text-sm text-[#C98A2A]">Consultant Psychologist</p>
-                <p className="text-xs text-white/60 mt-1">Medico-Legal, Trauma & Psychological Injury Specialist</p>
-              </div>
-            </div>
-
-            <div className="space-y-4 text-sm text-white/75">
-              <p>
-                Tess brings combined clinical and organisational psychology expertise, with national and international experience in the assessment and management of complex psychological injury and occupational stress presentations.
-              </p>
-              <p>
-                She has particular expertise in the assessment of psychological injury, causation and functional capacity, providing a strong foundation for medico-legal opinion in workers' compensation, motor vehicle accident and criminal injuries compensation matters.
-              </p>
-              <p>
-                Tess has years of experience conducting IME-style psychological assessments and preparing comprehensive medico-legal reports. She has specific expertise in the delivery of short-term, evidence-based trauma treatment, including EMDR.
-              </p>
-            </div>
-
-            <div className="mt-6 pt-6 border-t border-white/10">
-              <div className="text-xs uppercase tracking-[0.22em] text-[#C98A2A] mb-3">Key Expertise</div>
-              <div className="flex flex-wrap gap-2">
-                {["Trauma Treatment", "EMDR", "Causation Analysis", "Functional Capacity"].map((tag) => (
-                  <span key={tag} className="rounded-full bg-white/5 px-3 py-1 text-xs ring-1 ring-white/10">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-6 pt-6 border-t border-white/10">
-              <div className="text-xs uppercase tracking-[0.22em] text-[#C98A2A] mb-3">Contact</div>
-              <div className="space-y-2 text-sm text-white/75">
-                <div className="flex gap-3">
-                  <span className="text-[#C98A2A]">●</span>
-                  <a href="mailto:tess@tesstholstrup.com.au" className="hover:text-[#C98A2A] transition-colors">
-                    tess@tesstholstrup.com.au
-                  </a>
-                </div>
-                <div className="flex gap-3">
-                  <span className="text-[#C98A2A]">●</span>
-                  <a href="tel:+61414728351" className="hover:text-[#C98A2A] transition-colors">
-                    0414 728 351
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Shared approach note */}
@@ -588,7 +531,7 @@ function About() {
           <div className="text-center">
             <h3 className="text-lg font-semibold mb-4">Our Approach</h3>
             <p className="text-white/75 max-w-3xl mx-auto">
-              Both directors adopt an independent, objective and evidence-based approach in all medico-legal matters. Their treatment interventions are designed to promote early symptom resolution, facilitate durable functional recovery and support timely return-to-work outcomes while minimising long-term treatment dependency.
+              Rose adopts an independent, objective and evidence-based approach in all medico-legal matters. Her treatment interventions are designed to promote early symptom resolution, facilitate durable functional recovery and support timely return-to-work outcomes while minimising long-term treatment dependency.
             </p>
           </div>
         </div>
@@ -792,7 +735,7 @@ function CTA() {
               <div className="mt-8 space-y-3 text-sm text-white/80">
                 <div className="flex gap-3">
                   <span className="text-[#2FB7C9]">●</span>
-                  <span>Phone: Rose: 0439 900 539 or Tess: 0414 728 351</span>
+                  <span>Phone: 0439 900 539</span>
                 </div>
                 <div className="flex gap-3">
                   <span className="text-[#2FB7C9]">●</span>
